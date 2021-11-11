@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row, Button, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Product = ({ product }) => {
   const { name, img, price, description } = product;
@@ -22,7 +23,9 @@ const Product = ({ product }) => {
               <Button variant="success">Purchase Now</Button>
             </small>
           </Card.Footer> */}
-          <Button variant="success">Purchase Now</Button>
+          <Link to="/details">
+            <Button variant="success">Purchase Now</Button>
+          </Link>
         </Card>
       </div>
     </Col>
