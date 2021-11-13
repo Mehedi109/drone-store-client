@@ -1,16 +1,31 @@
 import React from 'react';
-import { Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Col, Container, Nav, Navbar, Row, Button } from 'react-bootstrap';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch,
+} from 'react-router-dom';
 import AddProduct from './AddProduct/AddProduct';
 import './Dashboard.css';
+import MakeAdmin from './MakeAdmin/MakeAdmin';
 import ManageOrders from './ManageOrders/ManageOrders';
 import ManageProducts from './ManageProducts/ManageProducts';
 import MyOrders from './MyOrders/MyOrders';
 import Payment from './Payment/Payment';
 
 const Dashboard = () => {
+  let { path, url } = useRouteMatch();
   return (
     <Container fluid>
+      {/* <Link to="/appointment">
+        <Button color="inherit">Appointment</Button>
+      </Link> */}
+      {/* <Link to={`${url}/makeAdmin`}>
+        <Button color="inherit">Make Admin</Button>
+      </Link> */}
       <div>
         <div className="">
           <Row>
@@ -55,13 +70,48 @@ const Dashboard = () => {
                           </Nav.Link>
                         </li>
                         <li>
-                          <Nav.Link style={{ color: 'white' }} href="#home">
+                          <Nav.Link
+                            as={Link}
+                            style={{ color: 'white' }}
+                            to={`${url}/manageOrders`}
+                          >
                             Manage Orders
                           </Nav.Link>
                         </li>
                         <li>
-                          <Nav.Link style={{ color: 'white' }} href="#home">
-                            Review
+                          <Nav.Link
+                            as={Link}
+                            style={{ color: 'white' }}
+                            to={`${url}/paymaent`}
+                          >
+                            Pay
+                          </Nav.Link>
+                        </li>
+                        <li>
+                          <Nav.Link
+                            as={Link}
+                            style={{ color: 'white' }}
+                            to={`${url}/myOrders`}
+                          >
+                            My Orders
+                          </Nav.Link>
+                        </li>
+                        <li>
+                          <Nav.Link
+                            as={Link}
+                            style={{ color: 'white' }}
+                            to={`${url}/makeAdmin`}
+                          >
+                            Make Admin
+                          </Nav.Link>
+                        </li>
+                        <li>
+                          <Nav.Link
+                            as={Link}
+                            style={{ color: 'white' }}
+                            to={`${url}/addProducts`}
+                          >
+                            Add Products
                           </Nav.Link>
                         </li>
                         <li>
@@ -77,11 +127,28 @@ const Dashboard = () => {
               </div>
             </Col>
             <Col xs={12} md={6} lg={10}>
-              <ManageOrders></ManageOrders>
+              {/* <ManageOrders></ManageOrders>
               <AddProduct></AddProduct>
               <ManageProducts></ManageProducts>
               <MyOrders></MyOrders>
-              <Payment></Payment>
+              <Payment></Payment> */}
+              <Switch>
+                <Route exact path={path}>
+                  <h3>Please select a topic.</h3>
+                </Route>
+                <Route path={`${path}/addProducts`}>
+                  <AddProduct></AddProduct>
+                </Route>
+                <Route path={`${path}/makeAdmin`}>
+                  <MakeAdmin></MakeAdmin>
+                </Route>
+                <Route path={`${path}/manageOrders`}>
+                  <ManageOrders></ManageOrders>
+                </Route>
+                <Route path={`${path}/paymment`}>
+                  <Payment></Payment>
+                </Route>
+              </Switch>
             </Col>
           </Row>
         </div>
