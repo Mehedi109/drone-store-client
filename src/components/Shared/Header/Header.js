@@ -17,7 +17,12 @@ const Header = () => {
             <Nav className="me-auto">
               <Nav.Link to="/home">Home</Nav.Link>
               {user?.email ? (
-                <Button onClick={logOut}>Logout</Button>
+                <>
+                  <Nav.Link as={Link} to="/dashboard">
+                    Dashboard
+                  </Nav.Link>
+                  <Button onClick={logOut}>Logout</Button>
+                </>
               ) : (
                 <Nav.Link as={Link} to="/login">
                   Login

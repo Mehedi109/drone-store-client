@@ -11,10 +11,12 @@ import {
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import useFirebase from '../../../hooks/useFirebase';
+import { useHistory } from 'react-router';
 
 const Register = () => {
   const [registerData, setRegisterData] = useState({});
   const { user, createNewUser, isLoading, error } = useAuth();
+  const history = useHistory();
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -29,7 +31,12 @@ const Register = () => {
     if (registerData.password !== registerData.password2) {
       alert('Password did not match');
     }
-    createNewUser(registerData.email, registerData.password);
+    createNewUser(
+      registerData.email,
+      registerData.password,
+      registerData.name,
+      history
+    );
     e.preventDefault();
   };
 
@@ -57,22 +64,22 @@ const Register = () => {
             )}
             {!isLoading && (
               <Form className="mx-1 mx-md-4" onSubmit={handleRegister}>
-                {/* <div className="d-flex flex-row align-items-center mb-4">
-                <i className="fas fa-user fa-lg me-3 fa-fw "></i>
-                <div className="w-100 "> */}
-                {/* <input type="text" id="form3Example1c" class="form-control" /> 
+                <div className="d-flex flex-row align-items-center mb-4">
+                  <i className="fas fa-user fa-lg me-3 fa-fw "></i>
+                  <div className="w-100 ">
+                    {/* <input type="text" id="form3Example1c" class="form-control" /> 
                   <label className="form-label" for="form3Example1c">
                     Your Name
                   </label> */}
-                {/* <Form.Control
-                    type="text"
-                    placeholder="Enter Your Name"
-                    name="name"
-                    onBlur={handleOnBlur}
-                    className=""
-                  />
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Your Name"
+                      name="name"
+                      onBlur={handleOnBlur}
+                      className=""
+                    />
+                  </div>
                 </div>
-              </div> */}
                 <div className="d-flex flex-row align-items-center mb-4">
                   <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                   <div className="w-100 ">
