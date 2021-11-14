@@ -7,13 +7,13 @@ const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/orders')
+    fetch('https://afternoon-wave-35884.herokuapp.com/orders')
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/orders/${id}`;
+    const url = `https://afternoon-wave-35884.herokuapp.com/orders/${id}`;
     const proceed = window.confirm('Are you sure to delete');
     if (proceed) {
       fetch(url, {

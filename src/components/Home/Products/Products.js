@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Product from '../Product/Product';
 
 const Products = () => {
@@ -15,11 +16,14 @@ const Products = () => {
       <div>
         <h3 className="mt-5 mb-5">Buy Your desired drone</h3>
         <Row className="g-5">
-          {products.map((product) => (
+          {products.slice(0, 6).map((product) => (
             <Product key={product._id} product={product}></Product>
           ))}
         </Row>
       </div>
+      <Link to="/allProducts">
+        <Button>Load More Products</Button>
+      </Link>
     </Container>
   );
 };

@@ -2,6 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Col, Container, Form, Row, Spinner, Button } from 'react-bootstrap';
 import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
+import Header from '../../Shared/Header/Header';
 
 const Details = () => {
   const { user, isLoading } = useAuth();
@@ -78,7 +80,7 @@ const Details = () => {
     };
     // const userName = user.displayName;
     // const order = { name: userName };
-    fetch('http://localhost:5000/orders', {
+    fetch('https://afternoon-wave-35884.herokuapp.com/orders', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
@@ -94,100 +96,103 @@ const Details = () => {
   return (
     // <div>
     // <h2>Details</h2>
-    <Container>
-      <div>
-        <Row>
-          <div>
-            <img className="img-fluid" src={order.img} alt="" />
-            <h4>{order.name}</h4>
-            <p>{order.description}</p>
-            <h3>{order.price}</h3>
-          </div>
-        </Row>
-      </div>
-      {/* <Row> */}
-      {/* <Col xs={12} md={12} lg={12}> */}
-      <div className="mx-auto w-100">
-        <h2 className="mt-3 mb-5">
-          Hey, {user.displayName} Confirm Your Order
-        </h2>
-
+    <>
+      <Header></Header>
+      <Container>
         <div>
-          {!isLoading && (
-            <Form className="mx-1 mx-md-4" onSubmit={handleOrder}>
-              <Form.Control
-                type="text"
-                placeholder="Enter Your Name"
-                // name="name"
-                value={user.displayName || ''}
-                className="mb-4"
-              />
-              <Form.Control
-                type="email"
-                placeholder="Enter Your Email"
-                value={user.email}
-                name="email"
-                // onBlur={handleOnBlur}
-                className="mb-4"
-              />
-              <Form.Control
-                type="text"
-                placeholder="Enter Your Name"
-                name="productName"
-                value={order.name}
-                // onBlur={handleOnBlur}
-                className="mb-4"
-              />
-              <Form.Control
-                type="text"
-                placeholder="Enter Your Name"
-                name="price"
-                value={order.price}
-                // onBlur={handleOnBlur}
-                className="mb-4"
-              />
-              <Form.Control
-                type="text"
-                placeholder="Your Address"
-                name="address"
-                ref={addressRef}
-                // value={'Address'}
-                // onBlur={handleOnBlur}
-                className="mb-4"
-              />
-              <Form.Control
-                type="text"
-                placeholder="Your Phone Number"
-                name="phone"
-                ref={phoneRef}
-                // value={'Phone'}
-                // onBlur={handleOnBlur}
-                className="mb-3"
-              />
-              <Button
-                type="submit"
-                variant="success"
-                style={{
-                  marginRight: '330px',
-                  marginBottom: '20px',
-                }}
-              >
-                Place Order
-              </Button>{' '}
-              <br />
-            </Form>
-          )}
-          {isLoading && (
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          )}
+          <Row>
+            <div>
+              <img className="img-fluid" src={order.img} alt="" />
+              <h4>{order.name}</h4>
+              <p>{order.description}</p>
+              <h3>{order.price}</h3>
+            </div>
+          </Row>
         </div>
-      </div>
-      {/* </Col> */}
-      {/* </Row> */}
-    </Container>
-    // </div>
+        {/* <Row> */}
+        {/* <Col xs={12} md={12} lg={12}> */}
+        <div className="mx-auto w-100">
+          <h2 className="mt-3 mb-5">
+            Hey, {user.displayName} Confirm Your Order
+          </h2>
+
+          <div>
+            {!isLoading && (
+              <Form className="mx-1 mx-md-4" onSubmit={handleOrder}>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Your Name"
+                  // name="name"
+                  value={user.displayName || ''}
+                  className="mb-4"
+                />
+                <Form.Control
+                  type="email"
+                  placeholder="Enter Your Email"
+                  value={user.email}
+                  name="email"
+                  // onBlur={handleOnBlur}
+                  className="mb-4"
+                />
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Your Name"
+                  name="productName"
+                  value={order.name}
+                  // onBlur={handleOnBlur}
+                  className="mb-4"
+                />
+                <Form.Control
+                  type="text"
+                  placeholder="Enter Your Name"
+                  name="price"
+                  value={order.price}
+                  // onBlur={handleOnBlur}
+                  className="mb-4"
+                />
+                <Form.Control
+                  type="text"
+                  placeholder="Your Address"
+                  name="address"
+                  ref={addressRef}
+                  // value={'Address'}
+                  // onBlur={handleOnBlur}
+                  className="mb-4"
+                />
+                <Form.Control
+                  type="text"
+                  placeholder="Your Phone Number"
+                  name="phone"
+                  ref={phoneRef}
+                  // value={'Phone'}
+                  // onBlur={handleOnBlur}
+                  className="mb-3"
+                />
+                <Button
+                  type="submit"
+                  variant="success"
+                  style={{
+                    marginRight: '330px',
+                    marginBottom: '20px',
+                  }}
+                >
+                  Place Order
+                </Button>{' '}
+                <br />
+              </Form>
+            )}
+            {isLoading && (
+              <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </Spinner>
+            )}
+          </div>
+        </div>
+        {/* </Col> */}
+        {/* </Row> */}
+      </Container>
+      <Footer></Footer>
+    </>
   );
 };
 

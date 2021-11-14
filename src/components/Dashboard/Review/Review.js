@@ -1,40 +1,40 @@
 import React, { useState } from 'react';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
+import useAuth from '../../../hooks/useAuth';
 
-const AddProduct = () => {
-  //     const { name, time } = booking;
-  //   const { user } = useAuth();
+const Review = () => {
+  const { user } = useAuth();
   const initialInfo = {
-    img: '',
-    name: '',
-    description: '',
-    price: '',
+    userName: user.displayName,
+    rating: '',
+    review: '',
   };
-  const [productInfo, setProductInfo] = useState(initialInfo);
+
+  const [reviewInfo, setReviewInfo] = useState(initialInfo);
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
-    const newInfo = { ...productInfo };
+    const newInfo = { ...reviewInfo };
     newInfo[field] = value;
-    setProductInfo(newInfo);
+    setReviewInfo(newInfo);
   };
 
   const handleAddProduct = (e) => {
     // collect data
-    const addProduct = {
-      ...productInfo,
+    const addReview = {
+      ...reviewInfo,
       //   time,
       //   serviceName: name,
       //   date: date.toLocaleDateString(),
     };
     // send to the server
-    fetch('https://afternoon-wave-35884.herokuapp.com/products', {
+    fetch('https://afternoon-wave-35884.herokuapp.com/review', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(addProduct),
+      body: JSON.stringify(addReview),
     })
       .then((res) => res.json())
       .then((data) => {
@@ -48,27 +48,29 @@ const AddProduct = () => {
   return (
     <div>
       <Container>
+        <h4 className="mt-4">Place A Review</h4>
         <Row>
           <Col xs={12} md={12} lg={12}>
             <Form className="mx-1 mx-md-4" onSubmit={handleAddProduct}>
               <Form.Control
                 type="text"
-                placeholder="Image Url"
-                name="img"
+                placeholder="Name"
+                name="userName"
+                value={user.displayName}
+                className="mb-4"
+              />
+              <Form.Control
+                type="email"
+                placeholder="Email"
+                name="email"
+                value={user.email}
                 onBlur={handleOnBlur}
                 className="mb-4"
               />
               <Form.Control
                 type="text"
-                placeholder="Product Name"
-                name="name"
-                onBlur={handleOnBlur}
-                className="mb-4"
-              />
-              <Form.Control
-                type="text"
-                placeholder="Price"
-                name="price"
+                placeholder="Write a number between 1 to 5 for Rating"
+                name="rating"
                 onBlur={handleOnBlur}
                 className="mb-4"
               />
@@ -76,7 +78,7 @@ const AddProduct = () => {
                 as="textarea"
                 rows={3}
                 type="text"
-                placeholder="Description"
+                placeholder="Review"
                 name="description"
                 onBlur={handleOnBlur}
                 className="mb-4"
@@ -90,7 +92,7 @@ const AddProduct = () => {
                   marginBottom: '20px',
                 }}
               >
-                Add Product
+                Post
               </Button>{' '}
               <br />
             </Form>
@@ -101,4 +103,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default Review;

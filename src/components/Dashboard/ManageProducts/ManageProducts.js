@@ -6,13 +6,13 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/drones')
+    fetch('https://afternoon-wave-35884.herokuapp.com/drones')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/products/${id}`;
+    const url = `https://afternoon-wave-35884.herokuapp.com/products/${id}`;
     const proceed = window.confirm('Are you sure to remove this product');
     if (proceed) {
       fetch(url, {

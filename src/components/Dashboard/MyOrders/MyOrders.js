@@ -8,14 +8,14 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const url = `http://localhost:5000/myOrders?email=${user.email}`;
+    const url = `https://afternoon-wave-35884.herokuapp.com/myOrders?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `http://localhost:5000/orders/${id}`;
+    const url = `https://afternoon-wave-35884.herokuapp.com/orders/${id}`;
     const proceed = window.confirm('Are you sure to cancel your order');
     if (proceed) {
       fetch(url, {

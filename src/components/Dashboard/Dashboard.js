@@ -8,6 +8,8 @@ import {
   useParams,
   useRouteMatch,
 } from 'react-router-dom';
+import useAuth from '../../hooks/useAuth';
+import AdminRoute from '../Login/AdminRoute/AdminRoute';
 import AddProduct from './AddProduct/AddProduct';
 import './Dashboard.css';
 import MakeAdmin from './MakeAdmin/MakeAdmin';
@@ -15,9 +17,11 @@ import ManageOrders from './ManageOrders/ManageOrders';
 import ManageProducts from './ManageProducts/ManageProducts';
 import MyOrders from './MyOrders/MyOrders';
 import Payment from './Payment/Payment';
+import Review from './Review/Review';
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
+  const { admin } = useAuth();
   return (
     <Container fluid>
       {/* <Link to="/appointment">
@@ -65,24 +69,10 @@ const Dashboard = () => {
                       {/* <Nav.Link href="#link">Link</Nav.Link> */}
                       <ul>
                         <li>
-                          <Nav.Link style={{ color: 'white' }} href="#home">
-                            My Orders
-                          </Nav.Link>
-                        </li>
-                        <li>
                           <Nav.Link
                             as={Link}
                             style={{ color: 'white' }}
-                            to={`${url}/manageOrders`}
-                          >
-                            Manage Orders
-                          </Nav.Link>
-                        </li>
-                        <li>
-                          <Nav.Link
-                            as={Link}
-                            style={{ color: 'white' }}
-                            to={`${url}/paymaent`}
+                            to={`${url}/payment`}
                           >
                             Pay
                           </Nav.Link>
@@ -100,20 +90,52 @@ const Dashboard = () => {
                           <Nav.Link
                             as={Link}
                             style={{ color: 'white' }}
-                            to={`${url}/makeAdmin`}
+                            to={`${url}/review`}
                           >
-                            Make Admin
+                            Review
                           </Nav.Link>
                         </li>
-                        <li>
-                          <Nav.Link
-                            as={Link}
-                            style={{ color: 'white' }}
-                            to={`${url}/addProducts`}
-                          >
-                            Add Products
-                          </Nav.Link>
-                        </li>
+                        {admin && (
+                          <>
+                            <li>
+                              <Nav.Link
+                                as={Link}
+                                style={{ color: 'white' }}
+                                to={`${url}/manageProducts`}
+                              >
+                                Manage Products
+                              </Nav.Link>
+                            </li>
+                            <li>
+                              <Nav.Link
+                                as={Link}
+                                style={{ color: 'white' }}
+                                to={`${url}/manageOrders`}
+                              >
+                                Manage Orders
+                              </Nav.Link>
+                            </li>
+
+                            <li>
+                              <Nav.Link
+                                as={Link}
+                                style={{ color: 'white' }}
+                                to={`${url}/makeAdmin`}
+                              >
+                                Make Admin
+                              </Nav.Link>
+                            </li>
+                            <li>
+                              <Nav.Link
+                                as={Link}
+                                style={{ color: 'white' }}
+                                to={`${url}/addProducts`}
+                              >
+                                Add Products
+                              </Nav.Link>
+                            </li>
+                          </>
+                        )}
                         <li>
                           <Nav.Link style={{ color: 'white' }} as={Link} to="/">
                             Home
@@ -122,30 +144,33 @@ const Dashboard = () => {
                       </ul>
                     </Nav>
                   </Navbar.Collapse>
-                  {/* </Container> */}
                 </Navbar>
               </div>
             </Col>
             <Col xs={12} md={6} lg={10}>
-              {/* <ManageOrders></ManageOrders>
-              <AddProduct></AddProduct>
-              <ManageProducts></ManageProducts>
-              <MyOrders></MyOrders>
-              <Payment></Payment> */}
               <Switch>
                 <Route exact path={path}>
                   <h3>Please select a topic.</h3>
                 </Route>
-                <Route path={`${path}/addProducts`}>
+                <AdminRoute path={`${path}/addProducts`}>
                   <AddProduct></AddProduct>
-                </Route>
-                <Route path={`${path}/makeAdmin`}>
+                </AdminRoute>
+                <AdminRoute path={`${path}/makeAdmin`}>
                   <MakeAdmin></MakeAdmin>
+                </AdminRoute>
+                <Route path={`${path}/myOrders`}>
+                  <MyOrders></MyOrders>
                 </Route>
-                <Route path={`${path}/manageOrders`}>
+                <Route path={`${path}/review`}>
+                  <Review></Review>
+                </Route>
+                <AdminRoute path={`${path}/manageProducts`}>
+                  <ManageProducts></ManageProducts>
+                </AdminRoute>
+                <AdminRoute path={`${path}/manageOrders`}>
                   <ManageOrders></ManageOrders>
-                </Route>
-                <Route path={`${path}/paymment`}>
+                </AdminRoute>
+                <Route path={`${path}/payment`}>
                   <Payment></Payment>
                 </Route>
               </Switch>
@@ -153,16 +178,7 @@ const Dashboard = () => {
           </Row>
         </div>
       </div>
-      {/* </Row> */}
     </Container>
-    // <Row>
-    //   <Col xs={12} md={8}>
-    //     xs=12 md=8
-    //   </Col>
-    //   <Col xs={6} md={4}>
-    //     xs=6 md=4
-    //   </Col>
-    // </Row>
   );
 };
 
