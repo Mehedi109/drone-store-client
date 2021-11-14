@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import './MakeAdmin.css';
 
 const MakeAdmin = () => {
   const [email, setEmail] = useState('');
@@ -32,14 +33,14 @@ const MakeAdmin = () => {
   };
   return (
     <div>
-      <h2>Make Admin</h2>
+      <h5 className="mt-5">Make Admin</h5>
       <Form onSubmit={handleAddAdmin}>
         <Form.Control
           type="email"
           placeholder="Email"
           name="name"
           onBlur={handleOnBlur}
-          className=""
+          className="mb-3 input"
         />
         <Button type="submit" variant="primary">
           Make Admin

@@ -2,36 +2,47 @@ import React from 'react';
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import './Header.css';
 
 const Header = () => {
   const { user, logOut } = useAuth();
   return (
     <div>
-      <Navbar bg="light" expand="lg" fixed="top">
+      <Navbar
+        style={{ backgroundColor: '#0D4C91' }}
+        bg=""
+        expand="lg"
+        fixed="top"
+      >
         <Container>
-          <Navbar.Brand href="#home">
-            Drone<span className="text-danger">Store</span>
+          <Navbar.Brand
+            href="#home"
+            style={{ color: 'white', fontWeight: '600' }}
+          >
+            Drone<span className="text-warning">Store</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              <Nav.Link as={Link} to="/home">
+            <Nav className=" menu">
+              <Nav.Link as={Link} to="/home" className="text-warning">
                 Home
               </Nav.Link>
               {user?.email ? (
                 <>
-                  <Nav.Link as={Link} to="/dashboard">
+                  <Nav.Link as={Link} to="/dashboard" className="text-warning">
                     Dashboard
                   </Nav.Link>
-                  <Button onClick={logOut}>Logout</Button>
+                  <Button className="logout-btn" onClick={logOut}>
+                    Logout
+                  </Button>
                 </>
               ) : (
-                <Nav.Link as={Link} to="/login">
+                <Nav.Link as={Link} to="/login" className="text-warning">
                   Login
                 </Nav.Link>
               )}
-              <Navbar.Text>
-                Signed in as: <a href="#login">Mark Otto</a>
+              <Navbar.Text className="text-warning fw-bold user">
+                {user.displayName}
               </Navbar.Text>
             </Nav>
           </Navbar.Collapse>

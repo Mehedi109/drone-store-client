@@ -1,0 +1,13 @@
+/* .logout-btn {
+  background-color: Transparent;
+  background-repeat: 'no-repeat';
+  border: none;
+} */
+@media (max-width: 1400px) and (min-width: 689px) {
+  .menu {
+    margin-left: 570px;
+  }
+  .user {
+    margin-left: 120px;
+  }
+}

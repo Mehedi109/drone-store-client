@@ -7,40 +7,47 @@ const Banner = () => {
   return (
     <div>
       <Carousel>
-        <Carousel.Item>
+        <Carousel.Item className="carousel-item">
           <img
             className="d-block w-100"
-            src="https://i.ibb.co/7rdrZhM/3d-drone-flying-sunset-sea-1048-12782.jpg/200x200"
+            src="https://i.ibb.co/7rdrZhM/3d-drone-flying-sunset-sea-1048-12782.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
             <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <p>
+              Drone store is a drone selling website in online with varoius
+              model of drones.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://i.ibb.co/7rdrZhM/3d-drone-flying-sunset-sea-1048-12782.jpg"
+            src="https://i.ibb.co/fx4BLrr/photo-1623041997614-064bb5b95af6-crop-entropy-cs-tinysrgb-fit-max-fm-jpg-ixid-Mnwx-Mj-A3f-DB8-MXxhb.jpg"
             alt="Second slide"
           />
 
           <Carousel.Caption>
             <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>
+              Drone store is a drone selling website in online with varoius
+              model of drones.
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://i.ibb.co/7rdrZhM/3d-drone-flying-sunset-sea-1048-12782.jpg"
+            src="https://i.ibb.co/KqkrFpv/photo-1515849430397-7aee921bbea1-ixlib-rb-1-2.jpg"
             alt="Third slide"
           />
 
           <Carousel.Caption>
             <h3>Third slide label</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Drone store is a drone selling website in online with varoius
+              model of drones.
             </p>
           </Carousel.Caption>
         </Carousel.Item>

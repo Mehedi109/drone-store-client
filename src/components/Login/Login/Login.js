@@ -1,3 +1,4 @@
+import userEvent from '@testing-library/user-event';
 import React, { useState } from 'react';
 import {
   Col,
@@ -16,7 +17,7 @@ const Login = () => {
   const [loginData, setLoginData] = useState({});
   const history = useHistory();
   const location = useLocation();
-  const redirect_uri = location.state?.from || '/home';
+  const redirect_uri = location.state?.from || '/dashboard';
 
   const handleOnBlur = (e) => {
     const field = e.target.name;

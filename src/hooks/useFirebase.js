@@ -7,6 +7,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import initializeFirebase from '../components/Login/Firebase/firebase.init';
 initializeFirebase();
 

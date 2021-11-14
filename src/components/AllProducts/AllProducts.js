@@ -18,7 +18,7 @@ const AllProducts = () => {
       <Header></Header>
       <Container>
         <div>
-          <Row className="g-5">
+          <Row className="g-4">
             <h2>All Products</h2>
             {products.map((product) => (
               <AllProduct key={product._id} product={product}></AllProduct>

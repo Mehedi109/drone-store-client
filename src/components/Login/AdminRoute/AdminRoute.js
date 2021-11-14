@@ -12,6 +12,13 @@ const AdminRoute = ({ children, ...rest }) => {
       </Spinner>
     );
   }
+  if (!admin) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
   return (
     <Route
       {...rest}

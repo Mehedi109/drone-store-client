@@ -1,0 +1,5 @@
+@media (min-width: 689px) and (max-width: 1400px) {
+  .product-form {
+    width: 500px;
+  }
+}

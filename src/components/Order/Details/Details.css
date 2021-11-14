@@ -1,0 +1,7 @@
+@media (min-width: 689px) and (max-width: 1400px) {
+  .booking-form {
+    margin-left: 250px;
+    margin-right: 250px;
+    padding: 40px;
+  }
+}

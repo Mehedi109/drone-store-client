@@ -8,7 +8,7 @@
     rgba(0, 212, 255, 1) 100%
   ); */
   color: white;
-  height: 100vh;
+  height: 100%;
 }
 
 .sidebar span {
@@ -22,4 +22,10 @@ nav {
 nav li {
   list-style: none;
   color: white;
+}
+
+@media (max-width: 1400px) and (min-width: 689px) {
+  .userName {
+    margin-left: 7px;
+  }
 }

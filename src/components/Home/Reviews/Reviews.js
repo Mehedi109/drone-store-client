@@ -18,7 +18,7 @@ const Reviews = () => {
         <h3 className="mt-5 mb-5">User Reviews</h3>
         {reviews.map((review) => (
           <>
-            <Row className="g-5 mb-5">
+            <Row className="g-4 mb-5">
               <Col sm={12} md={6} lg={4}>
                 <div className="card p-3 text-center px-4">
                   <div className="user-image">
@@ -47,7 +47,7 @@ const Reviews = () => {
             </Row>
           </>
         ))}
-        <Row className="g-5 mb-5">
+        <Row className="g-4 mb-5">
           <Col sm={12} md={6} lg={4}>
             <div className="card p-3 text-center px-4">
               <div className="user-image">

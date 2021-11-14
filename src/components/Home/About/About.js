@@ -12,7 +12,7 @@ const About = () => {
     <div className="mt-5 mb-5">
       <Container>
         <Row>
-          <Col sm={12} md={6} lg={6} data-aos="fade-in" data-aos-delay="400">
+          <Col xs={12} md={6} lg={6} data-aos="fade-in" data-aos-delay="400">
             <h2>About Us</h2>
             <p style={{ textAlign: 'start' }}>
               Welcome to drone store.Drone store is a drone selling website
@@ -23,8 +23,8 @@ const About = () => {
               <Button
                 variant="primary"
                 style={{
-                  textAlign: 'start',
-                  marginRight: '400px',
+                  // textAlign: 'start',
+                  // marginRight: '400px',
                   marginTop: '40px',
                 }}
               >
@@ -32,7 +32,7 @@ const About = () => {
               </Button>
             </p>
           </Col>
-          <Col sm={12} md={6} lg={6} data-aos="zoom-in" data-aos-delay="400">
+          <Col xs={12} md={6} lg={6} data-aos="zoom-in" data-aos-delay="400">
             <img
               className="img-fluid"
               src="https://i.ibb.co/cLFDpgm/photo-1507724571015-2a7d95884528-ixlib-rb-1-2.jpg"

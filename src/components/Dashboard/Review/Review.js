@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
+import './Review.css';
 
 const Review = () => {
   const { user } = useAuth();
@@ -38,7 +39,7 @@ const Review = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('Added Successfully');
+        alert('Posted Successfully');
         e.target.reset();
       });
 
@@ -48,10 +49,10 @@ const Review = () => {
   return (
     <div>
       <Container>
-        <h4 className="mt-4">Place A Review</h4>
+        <h4 className="mt-4">Post A Review</h4>
         <Row>
           <Col xs={12} md={12} lg={12}>
-            <Form className="mx-1 mx-md-4" onSubmit={handleAddProduct}>
+            <Form className="mx-auto review-form" onSubmit={handleAddProduct}>
               <Form.Control
                 type="text"
                 placeholder="Name"
@@ -88,7 +89,6 @@ const Review = () => {
                 type="submit"
                 variant="success"
                 style={{
-                  marginRight: '330px',
                   marginBottom: '20px',
                 }}
               >

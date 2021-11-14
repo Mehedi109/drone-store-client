@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Col, Container, Form, Row, Button } from 'react-bootstrap';
+import './AddProduct.css';
 
 const AddProduct = () => {
   //     const { name, time } = booking;
@@ -48,9 +49,10 @@ const AddProduct = () => {
   return (
     <div>
       <Container>
+        <h3 className="mt-5 mb-4">Add A Product</h3>
         <Row>
           <Col xs={12} md={12} lg={12}>
-            <Form className="mx-1 mx-md-4" onSubmit={handleAddProduct}>
+            <Form className="mx-auto product-form" onSubmit={handleAddProduct}>
               <Form.Control
                 type="text"
                 placeholder="Image Url"
@@ -86,7 +88,6 @@ const AddProduct = () => {
                 type="submit"
                 variant="success"
                 style={{
-                  marginRight: '330px',
                   marginBottom: '20px',
                 }}
               >

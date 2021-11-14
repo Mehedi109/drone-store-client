@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
 import Footer from '../../Shared/Footer/Footer';
 import Header from '../../Shared/Header/Header';
+import './Details.css';
 
 const Details = () => {
   const { user, isLoading } = useAuth();
@@ -14,50 +15,12 @@ const Details = () => {
   const addressRef = useRef();
   const phoneRef = useRef();
 
-  // const userName = user.displayName;
-
-  // const initialInfo = {
-  //   name: userName,
-  //   // userName: user.displayName,
-  //   email: user.email,
-  //   phone: '',
-  // };
-  // const [bookingInfo, setBookingInfo] = useState(initialInfo);
-
-  // const handleOnBlur = (e) => {
-  //   const field = e.target.name;
-  //   const value = e.target.value;
-  //   const newInfo = { ...bookingInfo };
-  //   newInfo[field] = value;
-  //   setBookingInfo(newInfo);
-  // };
-
   useEffect(() => {
     const url = `https://afternoon-wave-35884.herokuapp.com/drones/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);
-
-  // const initialInfo = {
-  //   // userName: user.displayName,
-  //   email: user.email,
-  //   phone: '',
-  //   address: '',
-  //   price: order.price,
-  //   productName: order.name,
-  // };
-
-  // const [orderInfo, setOrderInfo] = useState(initialInfo);
-
-  // const handleOnBlur = (e) => {
-  //   const field = e.target.name;
-  //   const value = e.target.value;
-  //   console.log(field, value);
-  //   const newOrderData = { ...orderInfo };
-  //   newOrderData[field] = value;
-  //   setOrderInfo(newOrderData);
-  // };
 
   const handleOrder = (e) => {
     // const order = { ...bookingInfo };
@@ -78,8 +41,6 @@ const Details = () => {
       phone: phone,
       // status: status,
     };
-    // const userName = user.displayName;
-    // const order = { name: userName };
     fetch('https://afternoon-wave-35884.herokuapp.com/orders', {
       method: 'POST',
       headers: {
@@ -94,8 +55,6 @@ const Details = () => {
     e.preventDefault();
   };
   return (
-    // <div>
-    // <h2>Details</h2>
     <>
       <Header></Header>
       <Container>
@@ -105,91 +64,90 @@ const Details = () => {
               <img className="img-fluid" src={order.img} alt="" />
               <h4>{order.name}</h4>
               <p>{order.description}</p>
-              <h3>{order.price}</h3>
             </div>
           </Row>
         </div>
-        {/* <Row> */}
-        {/* <Col xs={12} md={12} lg={12}> */}
-        <div className="mx-auto w-100">
-          <h2 className="mt-3 mb-5">
-            Hey, {user.displayName} Confirm Your Order
-          </h2>
-
-          <div>
-            {!isLoading && (
-              <Form className="mx-1 mx-md-4" onSubmit={handleOrder}>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Your Name"
-                  // name="name"
-                  value={user.displayName || ''}
-                  className="mb-4"
-                />
-                <Form.Control
-                  type="email"
-                  placeholder="Enter Your Email"
-                  value={user.email}
-                  name="email"
-                  // onBlur={handleOnBlur}
-                  className="mb-4"
-                />
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Your Name"
-                  name="productName"
-                  value={order.name}
-                  // onBlur={handleOnBlur}
-                  className="mb-4"
-                />
-                <Form.Control
-                  type="text"
-                  placeholder="Enter Your Name"
-                  name="price"
-                  value={order.price}
-                  // onBlur={handleOnBlur}
-                  className="mb-4"
-                />
-                <Form.Control
-                  type="text"
-                  placeholder="Your Address"
-                  name="address"
-                  ref={addressRef}
-                  // value={'Address'}
-                  // onBlur={handleOnBlur}
-                  className="mb-4"
-                />
-                <Form.Control
-                  type="text"
-                  placeholder="Your Phone Number"
-                  name="phone"
-                  ref={phoneRef}
-                  // value={'Phone'}
-                  // onBlur={handleOnBlur}
-                  className="mb-3"
-                />
-                <Button
-                  type="submit"
-                  variant="success"
-                  style={{
-                    marginRight: '330px',
-                    marginBottom: '20px',
-                  }}
-                >
-                  Place Order
-                </Button>{' '}
-                <br />
-              </Form>
-            )}
-            {isLoading && (
-              <Spinner animation="border" role="status">
-                <span className="visually-hidden">Loading...</span>
-              </Spinner>
-            )}
-          </div>
-        </div>
-        {/* </Col> */}
-        {/* </Row> */}
+        <Row>
+          <Col xs={6} md={6} lg={12} className="mx-auto w-100">
+            <div className="mx-auto w-100">
+              <h5 className="mt-5 mb-3">
+                Hey, {user.displayName} your total amount is {order.price}
+              </h5>
+              <h4>Confirm Your Order Now</h4>
+              <div className="booking-form">
+                {!isLoading && (
+                  <Form className="mx-1 mx-md-4" onSubmit={handleOrder}>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Your Name"
+                      // name="name"
+                      value={user.displayName || ''}
+                      className="mb-4"
+                    />
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter Your Email"
+                      value={user.email}
+                      name="email"
+                      // onBlur={handleOnBlur}
+                      className="mb-4"
+                    />
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Your Name"
+                      name="productName"
+                      value={order.name}
+                      // onBlur={handleOnBlur}
+                      className="mb-4"
+                    />
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter Your Name"
+                      name="price"
+                      value={order.price}
+                      // onBlur={handleOnBlur}
+                      className="mb-4"
+                    />
+                    <Form.Control
+                      type="text"
+                      placeholder="Your Address"
+                      name="address"
+                      ref={addressRef}
+                      // value={'Address'}
+                      // onBlur={handleOnBlur}
+                      className="mb-4"
+                    />
+                    <Form.Control
+                      type="text"
+                      placeholder="Your Phone Number"
+                      name="phone"
+                      ref={phoneRef}
+                      // value={'Phone'}
+                      // onBlur={handleOnBlur}
+                      className="mb-3"
+                    />
+                    <Button
+                      type="submit"
+                      variant="success"
+                      style={{
+                        marginRight: '',
+                        marginBottom: '20px',
+                      }}
+                    >
+                      Place Order
+                    </Button>{' '}
+                    <br />
+                  </Form>
+                )}
+                {isLoading && (
+                  <Spinner animation="border" role="status">
+                    <span className="visually-hidden">Loading...</span>
+                  </Spinner>
+                )}
+              </div>
+            </div>
+          </Col>
+        </Row>
       </Container>
       <Footer></Footer>
     </>
