@@ -7,6 +7,7 @@ const Review = () => {
   const { user } = useAuth();
   const initialInfo = {
     userName: user.displayName,
+    email: user.email,
     rating: '',
     review: '',
   };
@@ -25,9 +26,6 @@ const Review = () => {
     // collect data
     const addReview = {
       ...reviewInfo,
-      //   time,
-      //   serviceName: name,
-      //   date: date.toLocaleDateString(),
     };
     // send to the server
     fetch('https://afternoon-wave-35884.herokuapp.com/review', {
@@ -42,7 +40,6 @@ const Review = () => {
         alert('Posted Successfully');
         e.target.reset();
       });
-
     e.preventDefault();
   };
 
@@ -84,7 +81,6 @@ const Review = () => {
                 onBlur={handleOnBlur}
                 className="mb-4"
               />
-              {/* <Form.Control as="textarea" rows={3} /> */}
               <Button
                 type="submit"
                 variant="success"

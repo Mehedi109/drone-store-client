@@ -35,8 +35,8 @@ const ManageProducts = () => {
         <thead>
           <tr>
             <th>Product Name</th>
+            <th>Product Image</th>
             <th>Price</th>
-            <th>Status</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -44,12 +44,11 @@ const ManageProducts = () => {
           {products.map((product) => (
             <tr>
               <td>{product.name}</td>
-              <td>{product.price}</td>
-              <td>{product.status}</td>
               <td>
-                <Link to={`/updateOrders/${product._id}`}>
-                  <button className="btn btn-info">Edit</button>
-                </Link>
+                <img src={product.img} width="80" height="60" alt="" />
+              </td>
+              <td>${product.price}</td>
+              <td>
                 <button
                   className="btn btn-danger"
                   onClick={() => handleDelete(product._id)}

@@ -5,7 +5,6 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Header from './components/Shared/Header/Header';
 import Home from './components/Home/Home/Home';
-// import { Switch } from 'react-router';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Register from './components/Login/Register/Register';
 import Login from './components/Login/Login/Login';
@@ -14,6 +13,7 @@ import Details from './components/Order/Details/Details';
 import PrivateRoute from './components/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './components/Dashboard/Dashboard';
 import AllProducts from './components/AllProducts/AllProducts';
+import NotFound from './components/Shared/NotFound/NotFound';
 
 function App() {
   return (
@@ -42,6 +42,9 @@ function App() {
             <PrivateRoute exact path="/order/:id">
               <Details></Details>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>

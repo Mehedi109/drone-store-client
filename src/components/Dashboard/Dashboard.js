@@ -24,15 +24,6 @@ const Dashboard = () => {
   const { user, admin, logOut } = useAuth();
   return (
     <>
-      <div
-        style={{
-          marginLeft: '12px',
-          backgroundColor: 'orange',
-          height: '60px',
-        }}
-      >
-        <h2>Dashboard</h2>
-      </div>
       <Container fluid>
         <div>
           <div className="">
@@ -83,11 +74,6 @@ const Dashboard = () => {
                                   Home
                                 </Nav.Link>
                               </li>
-                              {/* <li>
-                                <Nav.Link as={Link} style={{ color: 'white' }}>
-                                  <Button onClick={logOut}>Logout</Button>
-                                </Nav.Link>
-                              </li> */}
                             </>
                           )}
                           {admin && (
@@ -129,35 +115,20 @@ const Dashboard = () => {
                                   Add Products
                                 </Nav.Link>
                               </li>
-
-                              {/* <li>
-                                <Button
-                                  style={{
-                                    backgroundColor: 'Transparent',
-                                    backgroundRepeat: 'no-repeat',
-                                    border: 'none',
-                                    marginLeft: '-3px',
-                                  }}
-                                  onClick={logOut}
-                                >
-                                  Logout
-                                </Button>
-                              </li> */}
                             </>
                           )}
-                          <li>
-                            <Button
-                              style={{
-                                backgroundColor: 'Transparent',
-                                backgroundRepeat: 'no-repeat',
-                                border: 'none',
-                                marginLeft: '-3px',
-                              }}
-                              onClick={logOut}
-                            >
-                              Logout
-                            </Button>
-                          </li>
+                          <Button
+                            style={{
+                              backgroundColor: 'Transparent',
+                              backgroundRepeat: 'no-repeat',
+                              border: 'none',
+                              marginLeft: '-3px',
+                            }}
+                            onClick={logOut}
+                          >
+                            Logout
+                          </Button>
+                          {/* </li> */}
                         </ul>
                       </Nav>
                     </Navbar.Collapse>

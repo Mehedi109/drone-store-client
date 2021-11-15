@@ -34,36 +34,39 @@ const MyOrders = () => {
 
   return (
     <div>
-      <Table className="manage-orders" striped bordered hover size="sm">
-        <thead>
-          <tr>
-            <th>Email</th>
-            <th>Total Price</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orders.map((order) => (
+      <h4 className="mt-4 mb-3 text-danger">My Orders</h4>
+      {orders.length !== 0 && (
+        <Table className="manage-orders" striped bordered hover size="sm">
+          <thead>
             <tr>
-              <td>{order.email}</td>
-              <td>{order.price}</td>
-              <td>{order.status}</td>
-              <td>
-                <Link to={`/updateOrders/${order._id}`}>
-                  <button className="btn btn-info">Edit</button>
-                </Link>
-                <button
-                  className="btn btn-danger"
-                  onClick={() => handleDelete(order._id)}
-                >
-                  Cancel
-                </button>
-              </td>
+              <th>Email</th>
+              <th>Total Price</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </Table>
+          </thead>
+          <tbody>
+            {orders.map((order) => (
+              <tr>
+                <td>{order.email}</td>
+                <td>{order.price}</td>
+                <td>{order.status}</td>
+                <td>
+                  <Link to={`/updateOrders/${order._id}`}>
+                    <button className="btn btn-info">Edit</button>
+                  </Link>
+                  <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete(order._id)}
+                  >
+                    Cancel
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      )}
     </div>
   );
 };

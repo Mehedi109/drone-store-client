@@ -58,12 +58,8 @@ const useFirebase = () => {
 
   const logOut = () => {
     signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      })
+      .then(() => {})
+      .catch((error) => {})
       .finally(() => setIsLoading(false));
   };
 

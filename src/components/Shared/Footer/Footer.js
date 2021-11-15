@@ -52,17 +52,7 @@ const Footer = () => {
                 Drone Store is a drone selling website where you can buy
                 different type of drone as your choice
               </p>
-              {/* <p>
-            <i class="fas fa-envelope mr-3"></i> info@example.com
-          </p>
-          <p>
-            <i class="fas fa-phone mr-3"></i> + 01 234 567 88
-          </p>
-          <p>
-            <i class="fas fa-print mr-3"></i> + 01 234 567 89
-          </p> */}
             </div>
-            {/* Links */}
             <div class="col-md-4 col-lg-4 col-xl-3 mx-auto  mb-5 mt-5">
               <h6 class="text-uppercase fw-bold">Links</h6>
               <hr
@@ -73,21 +63,10 @@ const Footer = () => {
                   height: '2px',
                 }}
               />
-              {/* <p> */}
               <Nav.Link to="/home">Home</Nav.Link>
               <Nav.Link to="/home">About</Nav.Link>
               <Nav.Link to="/home">Dashboard</Nav.Link>
               <Nav.Link to="/home">Logout</Nav.Link>
-              {/* </p> */}
-              {/* <p>
-            <i class="fas fa-envelope mr-3"></i> info@example.com
-          </p>
-          <p>
-            <i class="fas fa-phone mr-3"></i> + 01 234 567 88
-          </p>
-          <p>
-            <i class="fas fa-print mr-3"></i> + 01 234 567 89
-          </p> */}
             </div>
 
             {/* Contact  */}

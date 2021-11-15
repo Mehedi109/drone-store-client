@@ -23,7 +23,6 @@ const Details = () => {
   }, []);
 
   const handleOrder = (e) => {
-    // const order = { ...bookingInfo };
     const userName = user.displayName;
     const email = user.email;
     const productName = order.name;
@@ -39,7 +38,7 @@ const Details = () => {
       price: price,
       address: address,
       phone: phone,
-      // status: status,
+      status: 'pending',
     };
     fetch('https://afternoon-wave-35884.herokuapp.com/orders', {
       method: 'POST',
@@ -58,7 +57,7 @@ const Details = () => {
     <>
       <Header></Header>
       <Container>
-        <div>
+        <div className="mt-5">
           <Row>
             <div>
               <img className="img-fluid" src={order.img} alt="" />
@@ -71,7 +70,7 @@ const Details = () => {
           <Col xs={6} md={6} lg={12} className="mx-auto w-100">
             <div className="mx-auto w-100">
               <h5 className="mt-5 mb-3">
-                Hey, {user.displayName} your total amount is {order.price}
+                Hey, {user.displayName} your total amount is ${order.price}
               </h5>
               <h4>Confirm Your Order Now</h4>
               <div className="booking-form">
@@ -80,7 +79,6 @@ const Details = () => {
                     <Form.Control
                       type="text"
                       placeholder="Enter Your Name"
-                      // name="name"
                       value={user.displayName || ''}
                       className="mb-4"
                     />
@@ -89,7 +87,6 @@ const Details = () => {
                       placeholder="Enter Your Email"
                       value={user.email}
                       name="email"
-                      // onBlur={handleOnBlur}
                       className="mb-4"
                     />
                     <Form.Control
@@ -97,15 +94,13 @@ const Details = () => {
                       placeholder="Enter Your Name"
                       name="productName"
                       value={order.name}
-                      // onBlur={handleOnBlur}
                       className="mb-4"
                     />
                     <Form.Control
                       type="text"
                       placeholder="Enter Your Name"
                       name="price"
-                      value={order.price}
-                      // onBlur={handleOnBlur}
+                      value={'$' + order.price}
                       className="mb-4"
                     />
                     <Form.Control
@@ -113,8 +108,6 @@ const Details = () => {
                       placeholder="Your Address"
                       name="address"
                       ref={addressRef}
-                      // value={'Address'}
-                      // onBlur={handleOnBlur}
                       className="mb-4"
                     />
                     <Form.Control
@@ -122,8 +115,6 @@ const Details = () => {
                       placeholder="Your Phone Number"
                       name="phone"
                       ref={phoneRef}
-                      // value={'Phone'}
-                      // onBlur={handleOnBlur}
                       className="mb-3"
                     />
                     <Button

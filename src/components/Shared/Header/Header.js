@@ -27,6 +27,9 @@ const Header = () => {
               <Nav.Link as={Link} to="/home" className="text-warning">
                 Home
               </Nav.Link>
+              <Nav.Link as={Link} to="/allProducts" className="text-warning">
+                MoreProducts
+              </Nav.Link>
               {user?.email ? (
                 <>
                   <Nav.Link as={Link} to="/dashboard" className="text-warning">

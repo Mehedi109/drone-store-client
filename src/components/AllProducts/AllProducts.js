@@ -17,9 +17,10 @@ const AllProducts = () => {
     <>
       <Header></Header>
       <Container>
-        <div>
+        <div className="mb-5" style={{ marginTop: '100px' }}>
+          {/* <h2>All</h2> */}
+          <h3 className="text-danger mb-4">See Our All Products</h3>
           <Row className="g-4">
-            <h2>All Products</h2>
             {products.map((product) => (
               <AllProduct key={product._id} product={product}></AllProduct>
             ))}

@@ -3,8 +3,6 @@ import { Col, Container, Form, Row, Button } from 'react-bootstrap';
 import './AddProduct.css';
 
 const AddProduct = () => {
-  //     const { name, time } = booking;
-  //   const { user } = useAuth();
   const initialInfo = {
     img: '',
     name: '',
@@ -25,9 +23,6 @@ const AddProduct = () => {
     // collect data
     const addProduct = {
       ...productInfo,
-      //   time,
-      //   serviceName: name,
-      //   date: date.toLocaleDateString(),
     };
     // send to the server
     fetch('https://afternoon-wave-35884.herokuapp.com/products', {
@@ -83,7 +78,6 @@ const AddProduct = () => {
                 onBlur={handleOnBlur}
                 className="mb-4"
               />
-              {/* <Form.Control as="textarea" rows={3} /> */}
               <Button
                 type="submit"
                 variant="success"

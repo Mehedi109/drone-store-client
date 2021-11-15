@@ -10,7 +10,6 @@ import {
 } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import useFirebase from '../../../hooks/useFirebase';
 import { useHistory } from 'react-router';
 
 const Register = () => {
@@ -67,10 +66,6 @@ const Register = () => {
                 <div className="d-flex flex-row align-items-center mb-4">
                   <i className="fas fa-user fa-lg me-3 fa-fw "></i>
                   <div className="w-100 ">
-                    {/* <input type="text" id="form3Example1c" class="form-control" /> 
-                  <label className="form-label" for="form3Example1c">
-                    Your Name
-                  </label> */}
                     <Form.Control
                       type="text"
                       placeholder="Enter Your Name"
