@@ -1,8 +1,11 @@
-import React, { useEffect } from 'react';
-import { Col, Container, Row, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useEffect } from "react";
+import { Col, Container, Row, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import img1 from "../../../images/drone-1.jpg";
+import img2 from "../../../images/drone-2.jpg";
+import img3 from "../../../images/drone-3.jpeg";
 
 const About = () => {
   useEffect(() => {
@@ -10,7 +13,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="" style={{ marginBottom: 'px', marginTop: '20px' }}>
+    <div className="" style={{ marginBottom: "px", marginTop: "20px" }}>
       <Container>
         <Row>
           <Col
@@ -21,7 +24,7 @@ const About = () => {
             data-aos-duration="800"
           >
             <h3 className="mt-3">About Us</h3>
-            <p style={{ textAlign: 'start' }}>
+            <p style={{ textAlign: "start" }}>
               Welcome to drone store.Drone store is a drone selling website
               where you can buy different types of drone and every drone is good
               performing it's service.There is total 15 types of drones
@@ -31,7 +34,7 @@ const About = () => {
                 <Button
                   variant="primary"
                   style={{
-                    marginTop: '40px',
+                    marginTop: "40px",
                   }}
                 >
                   Shop Now
@@ -48,7 +51,8 @@ const About = () => {
           >
             <img
               className="img-fluid"
-              src="https://i.ibb.co/cLFDpgm/photo-1507724571015-2a7d95884528-ixlib-rb-1-2.jpg"
+              // src="https://i.ibb.co/cLFDpgm/photo-1507724571015-2a7d95884528-ixlib-rb-1-2.jpg"
+              src={img2}
               alt=""
             />
           </Col>
