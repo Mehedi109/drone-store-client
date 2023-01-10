@@ -26,9 +26,9 @@ const Header = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="menu">
+            <Nav className="menu ms-auto">
               {user?.email ? (
-                <div className="login-menu">
+                <div className="login-menu d-flex align-items-center">
                   <Nav.Link as={Link} to="/home" className="text-dark">
                     Home
                   </Nav.Link>

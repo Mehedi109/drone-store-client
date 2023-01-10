@@ -34,7 +34,10 @@
   }
 }
 
-@media (max-width: 688px) and (min-width: 320px) {
+@media (max-width: 688px) and (min-width: 220px) {
+  .login-menu {
+    display: block !important;
+  }
   .logout-btn {
     margin-top: 15px;
     margin-right: 1px;
