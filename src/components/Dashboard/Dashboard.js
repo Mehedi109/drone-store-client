@@ -1,5 +1,5 @@
-import React from 'react';
-import { Col, Container, Nav, Navbar, Row, Button } from 'react-bootstrap';
+import React from "react";
+import { Col, Container, Nav, Navbar, Row, Button } from "react-bootstrap";
 import {
   BrowserRouter as Router,
   Switch,
@@ -7,17 +7,18 @@ import {
   Link,
   useParams,
   useRouteMatch,
-} from 'react-router-dom';
-import useAuth from '../../hooks/useAuth';
-import AdminRoute from '../Login/AdminRoute/AdminRoute';
-import AddProduct from './AddProduct/AddProduct';
-import './Dashboard.css';
-import MakeAdmin from './MakeAdmin/MakeAdmin';
-import ManageOrders from './ManageOrders/ManageOrders';
-import ManageProducts from './ManageProducts/ManageProducts';
-import MyOrders from './MyOrders/MyOrders';
-import Payment from './Payment/Payment';
-import Review from './Review/Review';
+} from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import AdminRoute from "../Login/AdminRoute/AdminRoute";
+import AddProduct from "./AddProduct/AddProduct";
+import "./Dashboard.css";
+import MakeAdmin from "./MakeAdmin/MakeAdmin";
+import ManageOrders from "./ManageOrders/ManageOrders";
+import ManageProducts from "./ManageProducts/ManageProducts";
+import MyOrders from "./MyOrders/MyOrders";
+import Payment from "./Payment/Payment";
+import Review from "./Review/Review";
+import Sidebar from "./Sidebar/Sidebar";
 
 const Dashboard = () => {
   let { path, url } = useRouteMatch();
@@ -41,7 +42,7 @@ const Dashboard = () => {
                               <li>
                                 <Nav.Link
                                   as={Link}
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   to={`${url}/payment`}
                                 >
                                   Pay
@@ -50,7 +51,7 @@ const Dashboard = () => {
                               <li>
                                 <Nav.Link
                                   as={Link}
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   to={`${url}/myOrders`}
                                 >
                                   My Orders
@@ -59,7 +60,7 @@ const Dashboard = () => {
                               <li>
                                 <Nav.Link
                                   as={Link}
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   to={`${url}/review`}
                                 >
                                   Review
@@ -67,7 +68,7 @@ const Dashboard = () => {
                               </li>
                               <li>
                                 <Nav.Link
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   as={Link}
                                   to="/"
                                 >
@@ -81,7 +82,7 @@ const Dashboard = () => {
                               <li>
                                 <Nav.Link
                                   as={Link}
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   to={`${url}/manageProducts`}
                                 >
                                   Manage Products
@@ -90,7 +91,7 @@ const Dashboard = () => {
                               <li>
                                 <Nav.Link
                                   as={Link}
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   to={`${url}/manageOrders`}
                                 >
                                   Manage Orders
@@ -100,7 +101,7 @@ const Dashboard = () => {
                               <li>
                                 <Nav.Link
                                   as={Link}
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   to={`${url}/makeAdmin`}
                                 >
                                   Make Admin
@@ -109,7 +110,7 @@ const Dashboard = () => {
                               <li>
                                 <Nav.Link
                                   as={Link}
-                                  style={{ color: 'white' }}
+                                  style={{ color: "white" }}
                                   to={`${url}/addProducts`}
                                 >
                                   Add Products
@@ -119,10 +120,10 @@ const Dashboard = () => {
                           )}
                           <Button
                             style={{
-                              backgroundColor: 'Transparent',
-                              backgroundRepeat: 'no-repeat',
-                              border: 'none',
-                              marginLeft: '-3px',
+                              backgroundColor: "Transparent",
+                              backgroundRepeat: "no-repeat",
+                              border: "none",
+                              marginLeft: "-3px",
                             }}
                             onClick={logOut}
                           >

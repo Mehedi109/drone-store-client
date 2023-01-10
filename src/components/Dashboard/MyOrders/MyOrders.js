@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    const url = `https://afternoon-wave-35884.herokuapp.com/myOrders?email=${user.email}`;
+    const url = `https://drone-store-server.onrender.com/myOrders?email=${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `https://afternoon-wave-35884.herokuapp.com/orders/${id}`;
-    const proceed = window.confirm('Are you sure to cancel your order');
+    const url = `https://drone-store-server.onrender.com/orders/${id}`;
+    const proceed = window.confirm("Are you sure to cancel your order");
     if (proceed) {
       fetch(url, {
-        method: 'DELETE',
+        method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount) {
-            alert('Your Order has Canceled');
+            alert("Your Order has Canceled");
             const remainig = orders.filter((order) => order._id !== id);
             setOrders(remainig);
           }

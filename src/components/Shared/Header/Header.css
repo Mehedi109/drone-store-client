@@ -1,17 +1,28 @@
 .header {
   font-family: "Roboto", sans-serif;
 }
+
 .logout-btn {
   border: none;
   background-color: #ff7f47;
+  /* margin-bottom: 10px; */
 }
 @media (max-width: 1400px) and (min-width: 689px) {
   .menu {
     margin-left: 500px;
     font-weight: 400;
   }
+  .login-menu .nav-link,
+  .login-menu .navbar-text,
+  .login-menu .logout {
+    display: flex;
+    align-items: center;
+  }
   .login-menu {
     display: flex;
+  }
+  .user {
+    margin-left: 10px;
   }
   .logout-menu {
     margin-left: 250px;
@@ -19,6 +30,7 @@
   }
   .logout-btn {
     margin-left: 20px;
+    margin-bottom: 8px;
   }
 }
 

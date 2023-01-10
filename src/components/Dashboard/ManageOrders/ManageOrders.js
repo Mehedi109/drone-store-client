@@ -1,47 +1,47 @@
-import { Alert } from 'bootstrap';
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Alert } from "bootstrap";
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ManageOrders = () => {
   const [orders, setOrders] = useState([]);
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
 
   const handleStatus = (e) => {
     setStatus(e.target.value);
   };
 
   useEffect(() => {
-    fetch('https://afternoon-wave-35884.herokuapp.com/orders')
+    fetch("https://drone-store-server.onrender.com/orders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, []);
 
   const handleUpdate = (id) => {
-    fetch(`https://afternoon-wave-35884.herokuapp.com/updateStatus/${id}`, {
-      method: 'PUT',
-      headers: { 'content-type': 'application/json' },
+    fetch(`https://drone-store-server.onrender.com/updateStatus/${id}`, {
+      method: "PUT",
+      headers: { "content-type": "application/json" },
       body: JSON.stringify({ status }),
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.promoteValues == true) {
-          alert('Status Updated');
+          alert("Status Updated");
         }
       });
   };
 
   const handleDelete = (id) => {
-    const url = `https://afternoon-wave-35884.herokuapp.com/orders/${id}`;
-    const proceed = window.confirm('Are you sure to delete');
+    const url = `https://drone-store-server.onrender.com/orders/${id}`;
+    const proceed = window.confirm("Are you sure to delete");
     if (proceed) {
       fetch(url, {
-        method: 'DELETE',
+        method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount) {
-            alert('Deleted Successfully');
+            alert("Deleted Successfully");
             const remainig = orders.filter((order) => order._id !== id);
             setOrders(remainig);
           }
@@ -76,6 +76,7 @@ const ManageOrders = () => {
                   onChange={handleStatus}
                   type="text"
                   defaultValue={order.status}
+                  className="no-style"
                 />
               </td>
               <td>

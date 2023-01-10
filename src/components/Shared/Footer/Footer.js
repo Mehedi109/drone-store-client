@@ -1,13 +1,13 @@
-import React from 'react';
-import { Container, Nav, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Container, Nav, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div>
       <section
         className="d-flex justify-content-between p-4 text-white"
-        style={{ backgroundColor: '#21D192' }}
+        style={{ backgroundColor: "#21D192" }}
       >
         <div className="me-5">
           <span>Get connected with us on social networks:</span>
@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
       </section>
 
-      <div style={{ backgroundColor: '#1F2533', color: 'white' }}>
+      <div style={{ backgroundColor: "#1F2533", color: "white" }}>
         <Container>
           <Row className="">
             <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4 mt-5">
@@ -43,9 +43,9 @@ const Footer = () => {
               <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style={{
-                  width: '60px',
-                  backgroundColor: '#7c4dff',
-                  height: '2px',
+                  width: "60px",
+                  backgroundColor: "#7c4dff",
+                  height: "2px",
                 }}
               />
               <p>
@@ -58,9 +58,9 @@ const Footer = () => {
               <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style={{
-                  width: '60px',
-                  backgroundColor: '#7c4dff',
-                  height: '2px',
+                  width: "60px",
+                  backgroundColor: "#7c4dff",
+                  height: "2px",
                 }}
               />
               <Nav.Link to="/home">Home</Nav.Link>
@@ -75,9 +75,9 @@ const Footer = () => {
               <hr
                 class="mb-4 mt-0 d-inline-block mx-auto"
                 style={{
-                  width: '60px',
-                  backgroundColor: '#7c4dff',
-                  height: '2px',
+                  width: "60px",
+                  backgroundColor: "#7c4dff",
+                  height: "2px",
                 }}
               />
               <p>

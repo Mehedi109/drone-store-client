@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Col,
   Container,
@@ -7,10 +7,10 @@ import {
   Button,
   Spinner,
   Alert,
-} from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
-import { useHistory } from 'react-router';
+} from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import { useHistory } from "react-router";
 
 const Register = () => {
   const [registerData, setRegisterData] = useState({});
@@ -28,7 +28,7 @@ const Register = () => {
 
   const handleRegister = (e) => {
     if (registerData.password !== registerData.password2) {
-      alert('Password did not match');
+      alert("Password did not match");
     }
     createNewUser(
       registerData.email,
@@ -48,7 +48,7 @@ const Register = () => {
             {user.email && (
               <Alert
                 variant="success"
-                style={{ width: '84%', marginLeft: '65px' }}
+                style={{ width: "84%", marginLeft: "65px" }}
               >
                 User created successfully
               </Alert>
@@ -56,7 +56,7 @@ const Register = () => {
             {error && (
               <Alert
                 variant="danger"
-                style={{ width: '84%', marginLeft: '65px' }}
+                style={{ width: "84%", marginLeft: "65px" }}
               >
                 {error}
               </Alert>
@@ -115,16 +115,18 @@ const Register = () => {
                   type="submit"
                   variant="success"
                   style={{
-                    marginRight: '330px',
-                    marginBottom: '20px',
+                    marginRight: "330px",
+                    marginBottom: "20px",
                   }}
                 >
                   Register
-                </Button>{' '}
+                </Button>{" "}
                 <br />
-                <NavLink style={{ textDecoration: 'none' }} to="/login">
-                  Already Registered?Please Login
-                </NavLink>
+                <div style={{ marginBottom: "30px" }}>
+                  <NavLink style={{ textDecoration: "none" }} to="/login">
+                    Already Registered?Please Login
+                  </NavLink>
+                </div>
               </Form>
             )}
             {isLoading && (

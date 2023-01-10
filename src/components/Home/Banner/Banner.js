@@ -17,10 +17,10 @@ const Banner = () => {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3 className="mb-5">
+            <h4 className="mb-5">
               Drone store is a drone selling website in online with varoius
               model of drones.
-            </h3>
+            </h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -32,9 +32,9 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3 className="mb-5">
+            <h4 className="mb-5">
               Customers satisfaction is our first priority
-            </h3>
+            </h4>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -46,9 +46,9 @@ const Banner = () => {
           />
 
           <Carousel.Caption>
-            <h3 className="mb-5">
+            <h4 className="mb-5">
               Come to us and buy your desired drone from us
-            </h3>
+            </h4>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

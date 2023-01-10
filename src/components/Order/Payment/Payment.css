@@ -1,0 +1,19 @@
+.payment-form h3 {
+  font-size: 25px;
+  color: orange;
+}
+.payment-form h4 {
+  color: tomato;
+}
+.payment-form {
+  margin-top: 150px;
+  height: 50vh;
+  margin-bottom: 80px;
+}
+@media (min-width: 689px) and (max-width: 1400px) {
+  .payment-form {
+    margin-left: 250px;
+    margin-right: 250px;
+    padding: 40px;
+  }
+}

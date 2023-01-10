@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Col, Container, Form, Row, Button } from 'react-bootstrap';
-import useAuth from '../../../hooks/useAuth';
-import './Review.css';
+import React, { useState } from "react";
+import { Col, Container, Form, Row, Button } from "react-bootstrap";
+import useAuth from "../../../hooks/useAuth";
+import "./Review.css";
 
 const Review = () => {
   const { user } = useAuth();
   const initialInfo = {
     userName: user.displayName,
     email: user.email,
-    rating: '',
-    review: '',
+    rating: "",
+    review: "",
   };
 
   const [reviewInfo, setReviewInfo] = useState(initialInfo);
@@ -28,16 +28,16 @@ const Review = () => {
       ...reviewInfo,
     };
     // send to the server
-    fetch('https://afternoon-wave-35884.herokuapp.com/review', {
-      method: 'POST',
+    fetch("https://drone-store-server.onrender.com/review", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
       body: JSON.stringify(addReview),
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('Posted Successfully');
+        alert("Posted Successfully");
         e.target.reset();
       });
     e.preventDefault();
@@ -85,11 +85,11 @@ const Review = () => {
                 type="submit"
                 variant="success"
                 style={{
-                  marginBottom: '20px',
+                  marginBottom: "20px",
                 }}
               >
                 Post
-              </Button>{' '}
+              </Button>{" "}
               <br />
             </Form>
           </Col>

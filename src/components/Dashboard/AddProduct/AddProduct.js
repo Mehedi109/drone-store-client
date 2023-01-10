@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Col, Container, Form, Row, Button } from 'react-bootstrap';
-import './AddProduct.css';
+import React, { useState } from "react";
+import { Col, Container, Form, Row, Button } from "react-bootstrap";
+import "./AddProduct.css";
 
 const AddProduct = () => {
   const initialInfo = {
-    img: '',
-    name: '',
-    description: '',
-    price: '',
+    img: "",
+    name: "",
+    description: "",
+    price: "",
   };
   const [productInfo, setProductInfo] = useState(initialInfo);
 
@@ -25,16 +25,16 @@ const AddProduct = () => {
       ...productInfo,
     };
     // send to the server
-    fetch('https://afternoon-wave-35884.herokuapp.com/products', {
-      method: 'POST',
+    fetch("https://drone-store-server.onrender.com/products", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
       body: JSON.stringify(addProduct),
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('Added Successfully');
+        alert("Added Successfully");
         e.target.reset();
       });
 
@@ -71,7 +71,7 @@ const AddProduct = () => {
               />
               <Form.Control
                 as="textarea"
-                rows={3}
+                rows={5}
                 type="text"
                 placeholder="Description"
                 name="description"
@@ -82,11 +82,11 @@ const AddProduct = () => {
                 type="submit"
                 variant="success"
                 style={{
-                  marginBottom: '20px',
+                  marginBottom: "20px",
                 }}
               >
                 Add Product
-              </Button>{' '}
+              </Button>{" "}
               <br />
             </Form>
           </Col>

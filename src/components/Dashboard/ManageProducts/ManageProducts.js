@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('https://afternoon-wave-35884.herokuapp.com/drones')
+    fetch("https://drone-store-server.onrender.com/drones")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   const handleDelete = (id) => {
-    const url = `https://afternoon-wave-35884.herokuapp.com/products/${id}`;
-    const proceed = window.confirm('Are you sure to remove this product');
+    const url = `https://drone-store-server.onrender.com/products/${id}`;
+    const proceed = window.confirm("Are you sure to remove this product");
     if (proceed) {
       fetch(url, {
-        method: 'DELETE',
+        method: "DELETE",
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.deletedCount) {
-            alert('Removed Successfully');
+            alert("Removed Successfully");
             const remainig = products.filter((product) => product._id !== id);
             setProducts(remainig);
           }
@@ -53,7 +53,7 @@ const ManageProducts = () => {
                   className="btn btn-danger"
                   onClick={() => handleDelete(product._id)}
                 >
-                  Cancel
+                  Delete
                 </button>
               </td>
             </tr>

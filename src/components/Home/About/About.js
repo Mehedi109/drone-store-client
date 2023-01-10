@@ -3,6 +3,7 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import "./About.css";
 import img1 from "../../../images/drone-1.jpg";
 import img2 from "../../../images/drone-2.jpg";
 import img3 from "../../../images/drone-3.jpeg";
@@ -13,7 +14,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="" style={{ marginBottom: "px", marginTop: "20px" }}>
+    <div className="about" style={{ marginBottom: "px", marginTop: "20px" }}>
       <Container>
         <Row>
           <Col
@@ -23,7 +24,7 @@ const About = () => {
             data-aos="fade-right"
             data-aos-duration="800"
           >
-            <h3 className="mt-3">About Us</h3>
+            <h3 className="mt-3 mb-4">About Us</h3>
             <p style={{ textAlign: "start" }}>
               Welcome to drone store.Drone store is a drone selling website
               where you can buy different types of drone and every drone is good

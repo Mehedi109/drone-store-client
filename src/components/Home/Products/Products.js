@@ -14,23 +14,27 @@ const Products = () => {
   };
 
   useEffect(() => {
-    fetch("https://afternoon-wave-35884.herokuapp.com/drones")
+    fetch("https://drone-store-server.onrender.com/drones")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
 
   return (
-    <Container>
-      <div>
-        <h3 className="mt-5 mb-5" style={{ textAlign: "" }}>
-          Best Selling Products
-        </h3>
-        <Row className="g-4">
-          {products.slice(0, 6).map((product) => (
-            <Product key={product._id} product={product}></Product>
-          ))}
-        </Row>
-        {/* <Nav.Link
+    <div style={{ backgroundColor: "" }}>
+      <Container>
+        <div className="">
+          <h3
+            className="mt-5 mb-5"
+            style={{ textAlign: "", color: "#5B54F1", fontSize: "30px" }}
+          >
+            Best Selling Drones
+          </h3>
+          <Row className="g-4">
+            {products.slice(0, 6).map((product) => (
+              <Product key={product._id} product={product}></Product>
+            ))}
+          </Row>
+          {/* <Nav.Link
           as={Link}
           to="/allProducts"
           className="text-primary "
@@ -38,22 +42,23 @@ const Products = () => {
         >
           Load More .....
         </Nav.Link> */}
-        <Button
-          onClick={handleAllProducts}
-          to="/allProducts"
-          className=""
-          style={{
-            fontWeight: "",
-            fontSize: "",
-            padding: "7px 20px",
-            marginTop: "45px",
-            marginBottom: "45px",
-          }}
-        >
-          Load More
-        </Button>
-      </div>
-    </Container>
+          <Button
+            onClick={handleAllProducts}
+            to="/allProducts"
+            className="fancy-btn"
+            style={{
+              fontWeight: "",
+              fontSize: "",
+              padding: "7px 20px",
+              marginTop: "45px",
+              marginBottom: "45px",
+            }}
+          >
+            Load More
+          </Button>
+        </div>
+      </Container>
+    </div>
   );
 };
 

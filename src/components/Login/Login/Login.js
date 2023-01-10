@@ -1,5 +1,5 @@
-import userEvent from '@testing-library/user-event';
-import React, { useState } from 'react';
+import userEvent from "@testing-library/user-event";
+import React, { useState } from "react";
 import {
   Col,
   Container,
@@ -8,16 +8,26 @@ import {
   Button,
   Spinner,
   Alert,
-} from 'react-bootstrap';
-import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
+} from "react-bootstrap";
+import // getAuth,
+// createUserWithEmailAndPassword,
+// signInWithEmailAndPassword,
+// sendEmailVerification,
+// sendPasswordResetEmail,
+// signOut,
+// onAuthStateChanged,
+// updateProfile,
+"firebase/auth";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
-  const { loginUser, isLoading, error } = useAuth();
+  const { auth, loginUser, sendPasswordResetEmail, isLoading, error } =
+    useAuth();
   const [loginData, setLoginData] = useState({});
   const history = useHistory();
   const location = useLocation();
-  const redirect_uri = location.state?.from || '/dashboard';
+  const redirect_uri = location.state?.from || "/dashboard";
 
   const handleOnBlur = (e) => {
     const field = e.target.name;
@@ -32,6 +42,12 @@ const Login = () => {
     history.push(redirect_uri);
     e.preventDefault();
   };
+
+  const handleResetPassword = () => {
+    sendPasswordResetEmail(auth, loginData.email).then((result) => {
+      console.log(result);
+    });
+  };
   return (
     <div className="mt-5">
       <Container>
@@ -41,7 +57,7 @@ const Login = () => {
             {error && (
               <Alert
                 variant="danger"
-                style={{ width: '84%', marginLeft: '65px' }}
+                style={{ width: "84%", marginLeft: "65px" }}
               >
                 {error}
               </Alert>
@@ -72,20 +88,39 @@ const Login = () => {
                     />
                   </div>
                 </div>
-                <Button
-                  type="submit"
-                  variant="success"
-                  style={{
-                    marginRight: '330px',
-                    marginBottom: '20px',
-                  }}
+                <div
+                  className="button"
+                  style={{ marginLeft: "40px", textAlign: "start" }}
                 >
-                  Login
-                </Button>{' '}
+                  <Button
+                    type="submit"
+                    variant="success"
+                    style={{
+                      marginRight: "20px",
+                      marginBottom: "",
+                    }}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="btn btn-secondary btn-sm"
+                    onClick={handleResetPassword}
+                  >
+                    Reset Password
+                  </Button>
+                </div>
                 <br />
-                <NavLink style={{ textDecoration: 'none' }} to="/register">
-                  New User?Please Register
-                </NavLink>
+                <div style={{ marginBottom: "30px" }}>
+                  <NavLink
+                    style={{
+                      textDecoration: "none",
+                    }}
+                    to="/register"
+                  >
+                    New User?Please Register
+                  </NavLink>
+                </div>
               </Form>
             )}
             {isLoading && (

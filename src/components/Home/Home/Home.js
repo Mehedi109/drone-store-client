@@ -6,6 +6,7 @@ import Banner from "../Banner/Banner";
 import Contact from "../Contact/Contact";
 import Products from "../Products/Products";
 import Reviews from "../Reviews/Reviews";
+import Slick from "../Slick/Slick";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Products></Products>
       <About></About>
       <Reviews></Reviews>
+      {/* <Slick style={{ marginBottom: "100px" }}></Slick> */}
       <Footer></Footer>
     </div>
   );

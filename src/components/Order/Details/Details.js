@@ -1,28 +1,42 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Col, Container, Form, Row, Spinner, Button } from 'react-bootstrap';
-import { useParams } from 'react-router';
-import useAuth from '../../../hooks/useAuth';
-import Footer from '../../Shared/Footer/Footer';
-import Header from '../../Shared/Header/Header';
-import './Details.css';
+import React, { useEffect, useState, useRef } from "react";
+import { Col, Container, Form, Row, Spinner, Button } from "react-bootstrap";
+import { useParams } from "react-router";
+import { loadStripe } from "@stripe/stripe-js";
+import useAuth from "../../../hooks/useAuth";
+import Footer from "../../Shared/Footer/Footer";
+import Header from "../../Shared/Header/Header";
+import "./Details.css";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { useHistory } from "react-router-dom";
+import Payment from "../Payment/Payment";
+
+// payment related concept
+const stripePromise = loadStripe(
+  "pk_test_51I3MhVD7PjyNJImR8ksiRSe5zCH2KO6WmrHyNjicVL4g0qpLt81vLVefSZ6cPZquslEcqtLTngFTt5r6VcNC9ZsB00sy3eBJJ2"
+);
 
 const Details = () => {
   const { user, isLoading } = useAuth();
 
   const { id } = useParams();
   const [order, setOrder] = useState([]);
+  const [orderSuccess, setOrderSuccess] = useState("");
 
   const addressRef = useRef();
   const phoneRef = useRef();
+  const history = useHistory();
 
   useEffect(() => {
-    const url = `https://afternoon-wave-35884.herokuapp.com/drones/${id}`;
+    const url = `https://drone-store-server.onrender.com/drones/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, []);
 
   const handleOrder = (e) => {
+    setOrderSuccess("successful");
+    console.log({ orderSuccess });
     const userName = user.displayName;
     const email = user.email;
     const productName = order.name;
@@ -38,21 +52,27 @@ const Details = () => {
       price: price,
       address: address,
       phone: phone,
-      status: 'pending',
+      status: "pending",
     };
-    fetch('https://afternoon-wave-35884.herokuapp.com/orders', {
-      method: 'POST',
+
+    const orderUrl = `/payment/${id}`;
+    fetch("https://drone-store-server.onrender.com/orders", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
       body: JSON.stringify(newOrder),
     })
       .then((res) => res.json())
       .then((data) => {
-        alert('Booked Successfully');
+        // alert("Booked Successfully");
+        setOrderSuccess("successful");
+        console.log(orderSuccess);
+        history.push(orderUrl);
       });
     e.preventDefault();
   };
+
   return (
     <>
       <Header></Header>
@@ -79,8 +99,9 @@ const Details = () => {
                     <Form.Control
                       type="text"
                       placeholder="Enter Your Name"
-                      value={user.displayName || ''}
+                      value={user.displayName || ""}
                       className="mb-4"
+                      required
                     />
                     <Form.Control
                       type="email"
@@ -88,6 +109,7 @@ const Details = () => {
                       value={user.email}
                       name="email"
                       className="mb-4"
+                      required
                     />
                     <Form.Control
                       type="text"
@@ -95,13 +117,15 @@ const Details = () => {
                       name="productName"
                       value={order.name}
                       className="mb-4"
+                      required
                     />
                     <Form.Control
                       type="text"
                       placeholder="Enter Your Name"
                       name="price"
-                      value={'$' + order.price}
+                      value={"$" + order.price}
                       className="mb-4"
+                      required
                     />
                     <Form.Control
                       type="text"
@@ -109,6 +133,7 @@ const Details = () => {
                       name="address"
                       ref={addressRef}
                       className="mb-4"
+                      required
                     />
                     <Form.Control
                       type="text"
@@ -116,20 +141,27 @@ const Details = () => {
                       name="phone"
                       ref={phoneRef}
                       className="mb-3"
+                      required
                     />
                     <Button
                       type="submit"
                       variant="success"
                       style={{
-                        marginRight: '',
-                        marginBottom: '20px',
+                        marginRight: "",
+                        marginBottom: "20px",
                       }}
                     >
                       Place Order
-                    </Button>{' '}
+                    </Button>{" "}
                     <br />
                   </Form>
                 )}
+                {/* payment related concept */}
+                {/* {order?.price && (
+                  <Elements stripe={stripePromise}>
+                    <CheckoutForm order={order} orderSuccess={orderSuccess} />
+                  </Elements>
+                )} */}
                 {isLoading && (
                   <Spinner animation="border" role="status">
                     <span className="visually-hidden">Loading...</span>
