@@ -16,7 +16,6 @@ import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import ManageOrders from "./ManageOrders/ManageOrders";
 import ManageProducts from "./ManageProducts/ManageProducts";
 import MyOrders from "./MyOrders/MyOrders";
-import Payment from "./Payment/Payment";
 import Review from "./Review/Review";
 import Sidebar from "./Sidebar/Sidebar";
 
@@ -34,20 +33,11 @@ const Dashboard = () => {
                   <Navbar bg="" expand="lg">
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
-                      <Nav className="me-auto">
+                      <Nav className="me-auto mt-4">
                         <ul>
                           <li className="userName">{user.displayName}</li>
                           {!admin && user.email && (
                             <>
-                              <li>
-                                <Nav.Link
-                                  as={Link}
-                                  style={{ color: "white" }}
-                                  to={`${url}/payment`}
-                                >
-                                  Pay
-                                </Nav.Link>
-                              </li>
                               <li>
                                 <Nav.Link
                                   as={Link}
@@ -156,9 +146,9 @@ const Dashboard = () => {
                   <AdminRoute path={`${path}/manageOrders`}>
                     <ManageOrders></ManageOrders>
                   </AdminRoute>
-                  <Route path={`${path}/payment`}>
+                  {/* <Route path={`${path}/payment`}>
                     <Payment></Payment>
-                  </Route>
+                  </Route> */}
                 </Switch>
               </Col>
             </Row>

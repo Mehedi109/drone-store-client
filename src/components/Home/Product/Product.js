@@ -18,51 +18,9 @@ const Product = ({ product }) => {
   }, []);
 
   return (
-    // <Col sm={12} md={6} lg={4}>
-    //   <div className="products">
-    //     <div className="card-main">
-    //       <Card
-    //         style={{ border: "", height: "" }}
-    //         className=""
-    //         data-aos="zoom-in"
-    //         data-aos-duration="1000"
-    //       >
-    //         <div className="card-image">
-    //           <Card.Img
-    //             variant="top"
-    //             src={img}
-    //             style={{
-    //               height: "160px",
-    //               width: "160px",
-    //               // backgroundColor: "#ff76008f",
-    //             }}
-    //           />
-    //         </div>
-    //         <Card.Body style={{ textAlign: "start" }}>
-    //           <Card.Title>{name}</Card.Title>
-    //           <Card.Text>{description.slice(0, 100)}...</Card.Text>
-    //           <Card.Title>${price}</Card.Title>
-    //         </Card.Body>
-    //         <small>
-    //           <Button
-    //             onClick={handlePurchase}
-    //             variant="success"
-    //             className="mb-3 fancy-btn"
-    //             style={{ marginRight: "135px" }}
-    //           >
-    //             Purchase Now
-    //           </Button>
-    //         </small>
-    //       </Card>
-    //     </div>
-    //   </div>
-    // </Col>
-
     <Col sm={12} md={6} lg={4}>
       <div className="products">
         <div className="card-main" data-aos="zoom-in" data-aos-duration="1000">
-          {/* <div className="layer"></div> */}
-          {/* <div className="card-content"> */}
           <Card
             style={{
               border: "",
@@ -70,7 +28,7 @@ const Product = ({ product }) => {
               backgroundColor: "",
               borderRadius: "",
             }}
-            className=""
+            className="pb-3"
           >
             <div className="card-image">
               <Card.Img
@@ -94,7 +52,6 @@ const Product = ({ product }) => {
               </Button>
             </small>
           </Card>
-          {/* </div> */}
         </div>
       </div>
     </Col>

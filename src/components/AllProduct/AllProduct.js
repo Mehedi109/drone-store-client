@@ -32,7 +32,7 @@ const AllProduct = ({ product }) => {
                 backgroundColor: "",
                 borderRadius: "",
               }}
-              className=""
+              className="pb-3"
             >
               <div className="card-image">
                 <Card.Img

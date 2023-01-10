@@ -34,14 +34,6 @@ const Products = () => {
               <Product key={product._id} product={product}></Product>
             ))}
           </Row>
-          {/* <Nav.Link
-          as={Link}
-          to="/allProducts"
-          className="text-primary "
-          style={{ fontWeight: '600', fontSize: '20px' }}
-        >
-          Load More .....
-        </Nav.Link> */}
           <Button
             onClick={handleAllProducts}
             to="/allProducts"
